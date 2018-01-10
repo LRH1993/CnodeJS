@@ -1,23 +1,42 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <cnode-head></cnode-head>
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import cnodeHead from './components/cnodeHead'
+
+  export default {
+    name: 'app',
+    components: {
+      cnodeHead
+    }
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    margin-top: 6rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 22px;
+    word-break: break-all;
+  }
+
+  body,
+  div,
+  span,
+  a,
+  p,
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
 </style>
