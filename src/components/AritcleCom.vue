@@ -1,5 +1,5 @@
 <template>
-  <div class='secDiv'>
+  <div class='secDiv' v-loading.lock="loading">
     <span class='marginSpan'>发布于：{{createdTime}}</span>
     <router-link :to='{name:"UserRoute",params:{name: article.author.loginname}}'>作者：{{article.author.loginname}}
     </router-link>

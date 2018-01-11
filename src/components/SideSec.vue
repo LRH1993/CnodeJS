@@ -1,5 +1,5 @@
 <template>
-  <div class='secDiv'>
+  <div class='secDiv' v-loading.lock='loading'>
     <div>
       <router-link :to='{name: "UserRoute",params:{name: userInfo.loginname}}'><img :src='userInfo.avatar_url'>
       </router-link>

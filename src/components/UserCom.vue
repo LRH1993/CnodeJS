@@ -1,6 +1,6 @@
 <template>
   <div class="secDiv">
-    <div class="profile">
+    <div class="profile" v-loading.lock="loading">
       <div>
         <img :src='userInfo.avatar_url' :title='userInfo.loginname'>
         <span>{{userInfo.loginname}}</span>
@@ -18,7 +18,7 @@
         <span>注册时间：</span>{{dealCommentTime(userInfo.create_at)}}
       </p>
     </div>
-    <div class='recentReplies'>
+    <div class='recentReplies' v-loading.lock="loading">
       <p>最近参与的话题</p>
       <template v-for='(item,index) of userInfo.recent_replies'>
         <div v-if='index < 4' :key='index'>
@@ -31,7 +31,7 @@
         </div>
       </template>
     </div>
-    <div class='recentTopics'>
+    <div class='recentTopics' v-loading.lock="loading">
       <p>最近创建的话题</p>
       <template v-for='(item,index) of userInfo.recent_topics'>
         <div v-if='index < 5 && item' :key='index'>
