@@ -5,12 +5,13 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import VueResource from 'vue-resource'
+import Icon from 'vue-svg-icon/Icon.vue'
 
 Vue.use(VueResource)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.config.devtools = true
-
+Vue.component('icon', Icon)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

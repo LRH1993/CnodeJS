@@ -1,9 +1,9 @@
 <template>
   <div class="secDiv">
     <div v-for="item of content" :key="item.id">
-      <!--<route-link>-->
+      <router-link :to='{name: "UserRoute",params:{name: item.author.loginname}}'>
         <img :src="item.author.avatar_url" :title="item.author.loginname">
-      <!--</route-link>-->
+      </router-link>
       <div class="textDiv">
         {{item.title}}
         <!--<router-link></router-link>-->
@@ -18,7 +18,6 @@
 
 <script>
   /* eslint-disable */
-
   export default {
     name: 'MainSection',
     data() {
@@ -60,6 +59,13 @@
     },
     mounted: function () {
       window.addEventListener('scroll', this.scrollMethod);
+    },
+    beforeRouteLeave (to, from, next) {
+      window.removeEventListener('scroll',this.scrollMethod);
+      next();
+    },
+    beforeDestory:function () {
+      window.removeEventListener('scroll',this.scrollMethod);
     },
     computed: {
       dealTime: function () {
