@@ -56,13 +56,6 @@
         return String(time).match(/.{16}/)[0].replace(/.{2}/, '').replace(/[T]/, ' ');
       },
     },
-    watch: {
-      article(val) {
-        if (val) {
-          this.loading = false;
-        }
-      },
-    },
     beforeCreate() {
       this.$http({
         url: `https://cnodejs.org/api/v1${this.$route.path}`,
@@ -70,6 +63,7 @@
       }).then((res) => {
         if (res.data.success === true) {
           this.article = res.data.data;
+          this.loading = false;
           console.log(this.article.content);
           this.$parent.authorName = this.article.author.loginname;
         } else {

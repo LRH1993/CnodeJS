@@ -51,6 +51,7 @@
         }).then((res) => {
           console.log(res.data);
           this.content = res.data.data;
+          this.loading = false;
         }).catch((res) => {
           console.log('MaiSec.vue: ', res);
         });
@@ -73,15 +74,7 @@
     },
     created() {
       this.getData();
-    },
-    watch: {
-      content(val) {
-        if (val) {
-          this.loading = false;
-        }
-      }
     }
-
   }
 </script>
 <style scoped>

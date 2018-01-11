@@ -62,6 +62,7 @@
         method: 'get',
       }).then((res) => {
         this.userInfo = res.data.data;
+        this.loading = false;
       }).catch((res) => {
         console.log('UserCom.vue: ', res);
       });
@@ -82,13 +83,6 @@
         console.log('UserCom.vue: ', res);
       });
       next();
-    },
-    watch: {
-      userInfo(val) {
-        if (val) {
-          this.loading = false;
-        }
-      }
     }
   }
 </script>
