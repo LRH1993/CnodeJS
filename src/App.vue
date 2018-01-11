@@ -2,6 +2,7 @@
   <div id="app">
     <cnode-head></cnode-head>
     <router-view name='main'></router-view>
+    <router-view name="side" ref='child'></router-view>
   </div>
 </template>
 
@@ -10,9 +11,19 @@
 
   export default {
     name: 'app',
+    data() {
+      return {
+        authorName: '',
+      };
+    },
     components: {
       cnodeHead
-    }
+    },
+    watch: {
+      authorName(val) {
+        this.$refs.child.name = val;
+      },
+    },
   }
 </script>
 

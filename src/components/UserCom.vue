@@ -25,9 +25,9 @@
           <router-link :to='{name: "UserRoute",params:{name: item.author.loginname}}'>
             <img :src='item.author.avatar_url' :title='item.author.loginname'>
           </router-link>
-          <!--<router-link :to='{name: "ArticleRoute",params:{id:item.id}}'>-->
-          <p class='userTitle'>{{item.title}}</p>
-          <!--</router-link>-->
+          <router-link :to='{name: "ArticleRoute",params:{id:item.id}}'>
+            <p class='userTitle'>{{item.title}}</p>
+          </router-link>
         </div>
       </template>
     </div>
@@ -36,9 +36,9 @@
       <template v-for='(item,index) of userInfo.recent_topics'>
         <div v-if='index < 5 && item' :key='index'>
           <img :src='item.author.avatar_url' :title='item.author.loginname'>
-          <!--<router-link :to='{name: "ArticleRoute",params:{id:item.id}}'>-->
-          <p class='userTitle'>{{item.title}}</p>
-          <!--</router-link>-->
+          <router-link :to='{name: "ArticleRoute",params:{id:item.id}}'>
+            <p class='userTitle'>{{item.title}}</p>
+          </router-link>
         </div>
       </template>
     </div>
@@ -65,7 +65,7 @@
       }).catch((res) => {
         console.log('UserCom.vue: ', res);
       });
-      console.log(this.$route.path + "," + this.$http.options.url);
+      console.log(this.$route.path);
     },
     methods: {
       dealCommentTime(time) {

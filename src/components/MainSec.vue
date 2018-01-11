@@ -5,8 +5,7 @@
         <img :src="item.author.avatar_url" :title="item.author.loginname">
       </router-link>
       <div class="textDiv">
-        {{item.title}}
-        <!--<router-link></router-link>-->
+        <router-link :to='{name:"ArticleRoute",params:{id:item.id}}'>{{item.title}}</router-link>
         <div class='stuff'>
           <span>回复：{{item.reply_count}}</span>
           <span>创建于：{{dealTime}}</span>
@@ -60,12 +59,12 @@
     mounted: function () {
       window.addEventListener('scroll', this.scrollMethod);
     },
-    beforeRouteLeave (to, from, next) {
-      window.removeEventListener('scroll',this.scrollMethod);
+    beforeRouteLeave(to, from, next) {
+      window.removeEventListener('scroll', this.scrollMethod);
       next();
     },
-    beforeDestory:function () {
-      window.removeEventListener('scroll',this.scrollMethod);
+    beforeDestory: function () {
+      window.removeEventListener('scroll', this.scrollMethod);
     },
     computed: {
       dealTime: function () {
